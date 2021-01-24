@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/itemsListFragment">
+
+    <fragment
+        android:id="@+id/itemsListFragment"
+        android:name="com.example.thaidai.ui.fragments.ItemsListFragment"
+        android:label="ItemsListFragment" >
+        <action
+            android:id="@+id/viewItemDetails"
+            app:destination="@id/itemDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemDetailsFragment"
+        android:name="com.example.thaidai.ui.fragments.ItemDetailsFragment"
+        android:label="ItemDetailsFragment" />
+</navigation>
