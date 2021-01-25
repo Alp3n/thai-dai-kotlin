@@ -23,20 +23,21 @@ import com.example.thaidai.ui.theme.ThaiDaiTheme
 
 @Composable
 fun ItemCard(
-    itemNameEn: String,
-    itemNameTh: String,
-    itemNamePron: String,
+    itemNameEn: String?,
+    itemNameTh: String?,
+    itemNamePron: String?,
     onClick: () -> Unit,
 ) {
     Card(
         modifier = Modifier
-            .clickable(onClick = onClick),
+            .clickable(onClick = onClick).padding(16.dp),
         shape = RoundedCornerShape (16.dp),
     ) {
         Row(
 //                verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
+//                TODO image from url
                 imageResource(id = R.drawable.thaibasil),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -50,20 +51,26 @@ fun ItemCard(
                     .fillMaxWidth()
 
             ) {
-                Text(
-                    text = itemNameEn,
-                    style = MaterialTheme.typography.h4
-                )
-                Text(
-                    text = itemNameTh,
-                    style = MaterialTheme.typography.h6,
-                    color = Color.Gray
-                )
-                Text(
-                    text = itemNamePron,
-                    style = MaterialTheme.typography.h6,
-                    color = Color.Gray
-                )
+                if (itemNameEn != null) {
+                    Text(
+                        text = itemNameEn,
+                        style = MaterialTheme.typography.h4
+                    )
+                }
+                if (itemNameTh != null) {
+                    Text(
+                        text = itemNameTh,
+                        style = MaterialTheme.typography.h6,
+                        color = Color.Gray
+                    )
+                }
+                if (itemNamePron != null) {
+                    Text(
+                        text = itemNamePron,
+                        style = MaterialTheme.typography.h6,
+                        color = Color.Gray
+                    )
+                }
             }
         }
     }

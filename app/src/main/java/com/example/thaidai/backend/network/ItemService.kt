@@ -1,7 +1,7 @@
-package com.example.thaidai.model.network
+package com.example.thaidai.backend.network
 
-import com.example.thaidai.model.network.responses.ItemOneResponse
-import com.example.thaidai.model.network.responses.ItemListResponse
+import com.example.thaidai.backend.network.responses.ItemOneResponse
+import com.example.thaidai.backend.network.responses.ItemListResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 

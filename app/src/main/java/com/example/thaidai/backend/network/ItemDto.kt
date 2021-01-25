@@ -1,9 +1,9 @@
-package com.example.thaidai.model.network
+package com.example.thaidai.backend.network
 
-import com.example.thaidai.model.app.item.*
+import com.example.thaidai.backend.domain.item.*
 import com.google.gson.annotations.SerializedName
 
-class ItemNetwork(
+data class ItemDto(
 
     @SerializedName("_id")
     var id: String? = null,
