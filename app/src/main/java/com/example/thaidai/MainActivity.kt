@@ -10,15 +10,27 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
+
+
+
     private val TAG: String = "Debug"
 
     @Inject
-    lateinit var randomString: String
+    lateinit var app: Application
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.d(TAG, "onCreate: $randomString")
+
+        val userId = intent.getStringExtra("user_id")
+        val emailId = intent.getStringExtra("email_id")
+
+
+        Log.d(TAG, "USER ID: $userId")
+        Log.d(TAG, "EMAIL: $emailId")
     }
+
+
 }

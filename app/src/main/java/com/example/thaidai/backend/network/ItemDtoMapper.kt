@@ -10,7 +10,7 @@ class ItemDtoMapper : DomainMapper<ItemDto, Item> {
     override fun mapToDomainModel(dtoModel: ItemDto): Item {
         return Item(
             id = dtoModel.id,
-            names = dtoModel.names ?: Name(),
+            names = dtoModel.names ?: Name("null", "null", "null"),
             description = dtoModel.description,
             type = dtoModel.type,
             meats = dtoModel.meats ?: listOf(Meat()),

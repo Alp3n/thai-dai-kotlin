@@ -11,7 +11,7 @@ data class Item(
     val type: String? = null,
     val meats: List<Meat>? = null,
     val allergens: List<String>? = null,
-    val attributes: List<String>? = null,
+//    val attributes: List<String>? = null,
     val ingredients: List<String>? = null,
     val image: String? = null,
     val spicy: Boolean? = null,

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "972482033579",
+    "project_id": "thai-dai",
+    "storage_bucket": "thai-dai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972482033579:android:5add2604125b87e473c4ee",
+        "android_client_info": {
+          "package_name": "com.example.thaidai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "972482033579-tit3cponaeq5nicqvredq2gj125t6vli.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ75BQgm0tbLUbLxOSJO8W3yOOt_qowgY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "972482033579-tit3cponaeq5nicqvredq2gj125t6vli.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

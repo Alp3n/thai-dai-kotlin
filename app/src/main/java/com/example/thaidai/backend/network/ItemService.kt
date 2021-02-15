@@ -4,18 +4,17 @@ import com.example.thaidai.backend.network.responses.ItemOneResponse
 import com.example.thaidai.backend.network.responses.ItemListResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ItemService {
 
-    @GET("items")
+    @GET("item")
     suspend fun getItems(
-        //TODO implement auth
-//        @Header("Authorization") token: String,
+        @Query("type") query: String
     ): ItemListResponse
 
-    @GET("items/{id}")
+    @GET("item/{id}")
     suspend fun getOneItem(
-//        @Header("Authorization") token: String,
         @Path("id") id: String
     ): ItemOneResponse
 

@@ -7,9 +7,9 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Name(
     @SerializedName("en")
-    val nameEn: String? = null,
+    val nameEn: String,
     @SerializedName("th")
-    val nameTh: String? = null,
+    val nameTh: String,
     @SerializedName("pron")
-    val namePron: String? = null,
+    val namePron: String,
 ) : Parcelable

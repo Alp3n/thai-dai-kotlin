@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ItemDto(
 
-    @SerializedName("_id")
+    @SerializedName("id")
     var id: String? = null,
     @SerializedName("names")
     val names: Name? = null,

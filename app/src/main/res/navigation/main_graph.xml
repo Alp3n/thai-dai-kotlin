@@ -2,18 +2,33 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_graph"
-    app:startDestination="@id/itemsListFragment">
-
+    app:startDestination="@id/welcomeFragment">
+    <!--    app:startDestination="@id/itemsListFragment">-->
     <fragment
         android:id="@+id/itemsListFragment"
-        android:name="com.example.thaidai.ui.fragments.ItemsListFragment"
+        android:name="com.example.thaidai.ui.fragments.item_list.ItemListFragment"
         android:label="ItemsListFragment" >
         <action
             android:id="@+id/viewItemDetails"
             app:destination="@id/itemDetailsFragment" />
+        <action
+            android:id="@+id/viewOrder"
+            app:destination="@id/orderListFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemDetailsFragment"
-        android:name="com.example.thaidai.ui.fragments.ItemDetailsFragment"
+        android:name="com.example.thaidai.ui.fragments.item_details.ItemDetailsFragment"
         android:label="ItemDetailsFragment" />
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.thaidai.ui.fragments.WelcomeFragment"
+        android:label="WelcomeFragment" >
+        <action
+            android:id="@+id/enterApplication"
+            app:destination="@id/itemsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderListFragment"
+        android:name="com.example.thaidai.ui.fragments.order.OrderListFragment"
+        android:label="OrderListFragment" />
 </navigation>

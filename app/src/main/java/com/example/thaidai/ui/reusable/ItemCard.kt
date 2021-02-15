@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.selection.Selection
@@ -19,54 +20,58 @@ import androidx.compose.ui.selection.SelectionContainer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.thaidai.R
+import com.example.thaidai.backend.domain.item.Item
 import com.example.thaidai.ui.theme.ThaiDaiTheme
+import com.example.thaidai.util.DEFAULT_IMAGE
+import com.example.thaidai.util.loadPicture
 
 @Composable
 fun ItemCard(
-    itemNameEn: String?,
-    itemNameTh: String?,
-    itemNamePron: String?,
+    item: Item,
     onClick: () -> Unit,
 ) {
     Card(
         modifier = Modifier
-            .clickable(onClick = onClick).padding(16.dp),
-        shape = RoundedCornerShape (16.dp),
+            .padding(8.dp)
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
+        shape = MaterialTheme.shapes.small,
+        elevation = 4.dp
     ) {
-        Row(
-//                verticalAlignment = Alignment.CenterVertically
-        ) {
-            Image(
-//                TODO image from url
-                imageResource(id = R.drawable.thaibasil),
-                contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .preferredWidth(125.dp)
-                    .preferredHeight(125.dp)
-            )
+        Row {
+            item.image?.let { url ->
+
+                val image = loadPicture(url = url, defaultImage = DEFAULT_IMAGE)
+                    .value
+
+                image?.let { img ->
+                    Image(
+                        bitmap = img.asImageBitmap(),
+                        modifier = Modifier
+                            .preferredWidth(125.dp)
+                            .preferredHeight(125.dp),
+                        contentScale = ContentScale.Crop,
+                    )
+                }
+            }
             Column(
                 modifier = Modifier
                     .padding(8.dp)
-//                    .preferredSizeIn(minWidth = 200.dp)
                     .fillMaxWidth()
-
+//                    .preferredHeight(125.dp)
             ) {
-                if (itemNameEn != null) {
+                item.names?.let { names ->
                     Text(
-                        text = itemNameEn,
-                        style = MaterialTheme.typography.h4
+                        text = names?.nameEn,
+                        style = MaterialTheme.typography.h5
                     )
-                }
-                if (itemNameTh != null) {
                     Text(
-                        text = itemNameTh,
+                        text = names?.nameTh,
                         style = MaterialTheme.typography.h6,
                         color = Color.Gray
                     )
-                }
-                if (itemNamePron != null) {
                     Text(
-                        text = itemNamePron,
+                        text = names?.namePron,
                         style = MaterialTheme.typography.h6,
                         color = Color.Gray
                     )
@@ -74,13 +79,4 @@ fun ItemCard(
             }
         }
     }
-}
-
-@Composable
-@Preview
-fun ItemCardPreview() {
-    ThaiDaiTheme(darkTheme = false) {
-        ItemCard("Thai basil", "หกฟ้ๆไ", "krapao", onClick = {})
-    }
-
 }
